@@ -1,12 +1,14 @@
 ---
 layout:     post
-title:      Hello, world!
-date:       2018-06-05
-author:     yoshiko2
+title:      My First Post
+subtitle:   Hello World!
+date:       2019-10-18
+author:     Yoshiko2
+header-img: none
 catalog: true
 tags:
-    - Python
+    - python
 ---
 
-## 你好！
-建完博客后的测试文章
+## Hey
+>这是我的第一篇博客。
