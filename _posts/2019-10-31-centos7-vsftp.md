@@ -1,6 +1,17 @@
-# CentOS7配置虚拟用户访问并设置SSL加密
-环境：服务器IP地址为10.10.10.10  
-要求创建用户ftp_user，ftp目录在/var/ftpsite
+---
+layout:     post   				    # 使用的布局（不需要改）
+title:      CentOS7配置Vsftpd虚拟用户访问并配置SSL加密访问
+subtitle:   适合用于公网环境的FTP服务器配置
+date:       2019-10-31
+author:     Yoshiko2 						# 作者
+header-img: img/2019-10-31-centos7-vsftp.jpg
+catalog: true 						# 是否归档
+tags:								#标签
+    - Linux
+---
+
+环境：服务器IP地址为10.10.10.10
+要求创建用户ftp_user，具有读写权限，ftp根目录在/var/ftpsite
 
 ## 关闭selinux(可选)
 vi /etc/selinux/config  
@@ -46,6 +57,12 @@ vi /etc/pam.d/vsftpd
 auth required    pam_userdb.so  db=/etc/vsftpd_user_conf/vuser  
 account required pam_userdb.so  db=/etc/vsftpd_user_conf/vuser  
 
+## 生成证书
+cd /etc/pki/tls/certs
+make vsftpd.pem
+输入信息
+cp -r vsftpd.pem /etc/vsftpd/
+
 ## 修改vsftpd主配置文件
 vi /etc/vsftpd/vsftpd.conf  
 修改anonymous_enable为NO  
@@ -55,8 +72,19 @@ guest_username=vuser
 user_config_dir=/etc/vsftpd_user_conf/  
 allow_writeable_chroot=YES  
 
+ssl_enable=YES
+allow_anon_ssl=NO
+force_local_data_ssl=YES
+force_local_logins_ssl=YES
+ssl_tlsv1=YES
+ssl_sslv2=NO
+ssl_sslv3=NO
+rsa_cert_file=/etc/vsftpd/vsftpd.pem
+
 ## 启动vsftp服务
 systemctl start vsftpd  
 
 ## 防火墙放行vsftpd端口
 firewall-cmd --add-service=ftp --zone=public --permanent
+
+# 完成，请用支持SSL加密的ftp客户端连接ftp服务器，记得连接时勾选SSL加密选项
