@@ -81,10 +81,15 @@ ssl_sslv2=NO
 ssl_sslv3=NO  
 rsa_cert_file=/etc/vsftpd/vsftpd.pem  
 
+pasv_enable=yes     #开启FTP被动模式
+pasv_min_port=10000
+pasv_max_port=10100
+
 ## 启动vsftp服务
 ```systemctl start vsftpd```  
 
 ## 防火墙放行vsftpd端口
 ```firewall-cmd --add-service=ftp --zone=public --permanent```
+```firewall-cmd --add-port=10000-10100/tcp --zone=public --permanent```  
 
 # 完成，请用支持SSL加密的ftp客户端连接ftp服务器，记得连接时勾选SSL加密选项
