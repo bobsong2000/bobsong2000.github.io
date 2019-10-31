@@ -24,7 +24,7 @@ tags:								#标签
 ```mkdir /etc/vsftpd_user_conf```
 
 ## 创建虚拟用户
-```vi /etc/vsftpd_user_conf/vuser```  
+```vi /etc/vsftpd_user_conf/vuser.txt```  
 输入用户名密码，单数行为用户名，双数名为密码  
 ftp_user  
 123456  
