@@ -1,13 +1,13 @@
 # Site settings
-title: Yoshiko2
-SEOTitle: Yoshiko2 Blog | 博客
+title: bobsong2000
+SEOTitle: bobsong Blog | 博客
 header-img: img/post-bg-desk.jpg
-email: yoshiko.yohane222@gmail.com
+email: bobsong2000@gmail.com
 description: "我的博客"
 keyword: "linux, python, av"
-url: "https://yoshiko2.github.io"          # your host, for absolute URL
+url: "https://bobsong2000.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/yoshiko2/yoshiko2.github.io.git" # you code repository
+github_repo: "https://github.com/bobsong2000/bobsong2000.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
@@ -19,8 +19,8 @@ sidebar-avatar: /img/me.jpg      # use absolute URL, seeing it's used in both `/
 # SNS settings
 RSS: false
 # weibo_username:     qiubaiying
-github_username:    yoshiko2
-telegram_username:    yoshiko2
+github_username:    bobsong2000
+telegram_username:    bobsong2000
 
 
 
@@ -62,8 +62,8 @@ gitalk:
   clientID: 3c559af43ee9156f305f                            #生成的clientID
   clientSecret: 799d937e1054ce078cbdf33537d6a87d8d2b4b72    #生成的clientSecret
   repo: yoshiko2.github.io    #仓库名称
-  owner: yoshiko2    #github用户名
-  admin: yoshiko2
+  owner: bobsong2000    #github用户名
+  admin: bobsong2000
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
